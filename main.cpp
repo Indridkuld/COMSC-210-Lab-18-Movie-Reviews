@@ -57,12 +57,12 @@ while(choice == 1 || choice == 2) {
 cout << "\nOutputting all reviews:\n" << endl;
 reviewNode* current = head;
 while(current) {
-    cout << "Rating: " << current->rating << endl;
+    cout << "Rating " << (head - 1) << ": "<< current->rating;
     cout << "Comment: " << current->comment << endl;
-    cout << "Average: " << (current->rating / 5) * 100 << endl;
-
     current = current->next;
-}
+}    
+cout << "Average: " << (current->rating / 5) * 100 << endl;
+
 // Free allocated memory
 current = head;
 while (current) {
