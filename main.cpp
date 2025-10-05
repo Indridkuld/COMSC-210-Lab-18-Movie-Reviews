@@ -87,6 +87,7 @@ head = nullptr;
 return 0;
 }
 // function definitions
+// Add a new node to the front of the list
 void addFront(reviewNode*& head, const string& comment, float rating) {
     reviewNode *n = new reviewNode;
     n->comment = comment;
@@ -94,6 +95,7 @@ void addFront(reviewNode*& head, const string& comment, float rating) {
     n->next = head;
     head = n;
 }
+// add a new node to the tail of the list
 void addTail(reviewNode*& head, const string& comment, float rating) {
     reviewNode *n = new reviewNode;
     n->comment = comment;
