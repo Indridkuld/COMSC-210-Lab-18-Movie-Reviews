@@ -62,15 +62,15 @@ while(choice == 1 || choice == 2) {
 }
 cout << "\nOutputting all reviews:\n" << endl;
 reviewNode* current = head;
-int idx = 1;
+int index = 1;
     while(current) {
-        cout << "    > Review #" << idx << ": " << current->rating << ": " << current->comment << endl;
+        cout << "    > Review #" << index << ": " << fixed << setprecision(1) << current->rating << ": " << current->comment << endl;
         current = current->next;
-        ++idx;
+        ++index;
     }
     // print average
     if (count > 0) {
-        cout << "    > Average: " << (sum / count) << endl;
+        cout << "    > Average: " << fixed << setprecision(5) << (sum / count) << endl;
     } else {
         cout << "    > Average: 0" << endl;
     }
@@ -107,3 +107,4 @@ void addTail(reviewNode*& head, const string& comment, float rating) {
     while (current->next)  // traverse to the end of the list
         current = current->next;
     current->next = n;  // link the new node at the end
+}
