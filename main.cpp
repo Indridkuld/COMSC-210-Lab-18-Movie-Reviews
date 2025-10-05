@@ -70,7 +70,7 @@ while (current) {
     current = current->next;
     delete temp;
 }
-head = nullptr;
+head = nullptr
 
 return 0;
 }
