@@ -19,13 +19,13 @@ void addFront(reviewNode*& head, const string& comment, float rating);
 void addTail(reviewNode*& head, const string& comment, float rating);
 
 int main () {
-    reviewNode* head = nullptr;
-    int choice;
-    float rating;
-    string comment;
-    char ans;
-    float sum = 0.0f;
-    int count = 0;
+reviewNode* head = nullptr;
+int choice;
+float rating;
+string comment;
+char ans;
+float sum = 0.0f;
+int count = 0;
 cout << "Which linked list method should we use?";
 cout << "\n [1] New nodes are added at the head of the linked list";
 cout << "\n [2] New nodes are added at the tail of the linked list \n" << endl;
@@ -43,14 +43,11 @@ while(choice == 1 || choice == 2) {
     cin.ignore();
     cout << "Enter review comments: ";
     getline(cin, comment);
-        if(choice == 1) {
+    if(choice == 1) {
             addFront(head, comment, rating);
-        }else if(choice == 2) {
+    }else if(choice == 2) {
             addTail(head, comment, rating);
-        }
-    // keep running totals for average
-    sum += rating;
-    ++count;
+    
     cout << "Enter another review? Y/N: ";
     cin >> ans;
     cin.ignore();
@@ -61,19 +58,13 @@ while(choice == 1 || choice == 2) {
         }
 }
 cout << "\nOutputting all reviews:\n" << endl;
-    reviewNode* current = head;
-    int idx = 1;
-    while(current) {
-        cout << "    > Review #" << idx << ": " << fixed << setprecision(1) << current->rating << ": " << current->comment << endl;
-        current = current->next;
-        ++idx;
-    }
-    // print average (5 decimal places like sample)
-    if (count > 0) {
-        cout << "    > Average: " << fixed << setprecision(5) << (sum / count) << endl;
-    } else {
-        cout << "    > Average: 0" << endl;
-    }
+reviewNode* current = head;
+while(current) {
+    cout << "Rating " << (head - 1) << ": "<< current->rating;
+    cout << "Comment: " << current->comment << endl;
+    current = current->next;
+}    
+cout << "Average: " << (current->rating / 5) * 100 << endl;
 
 // Free allocated memory
 current = head;
@@ -87,14 +78,14 @@ head = nullptr;
 return 0;
 }
 // function definitions
-void addFront(reviewNode*& head, const string& comment, float rating) {
+void addFront(reviewNode*& head, const string& comment, int rating) {
     reviewNode *n = new reviewNode;
     n->comment = comment;
     n->rating = rating;
     n->next = head;
     head = n;
 }
-void addTail(reviewNode*& head, const string& comment, float rating) {
+void addTail(reviewNode*& head, const string& comment, int rating) {
     reviewNode *n = new reviewNode;
     n->comment = comment;
     n->rating = rating;
