@@ -107,4 +107,3 @@ void addTail(reviewNode*& head, const string& comment, float rating) {
     while (current->next)  // traverse to the end of the list
         current = current->next;
     current->next = n;  // link the new node at the end
-}
