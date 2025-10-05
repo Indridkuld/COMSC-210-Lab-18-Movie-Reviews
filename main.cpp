@@ -47,7 +47,10 @@ while(choice == 1 || choice == 2) {
             addFront(head, comment, rating);
     }else if(choice == 2) {
             addTail(head, comment, rating);
-    
+    }
+    // keep running totals for average
+    sum += rating;
+    ++count;
     cout << "Enter another review? Y/N: ";
     cin >> ans;
     cin.ignore();
@@ -59,12 +62,18 @@ while(choice == 1 || choice == 2) {
 }
 cout << "\nOutputting all reviews:\n" << endl;
 reviewNode* current = head;
-while(current) {
-    cout << "Rating " << (head - 1) << ": "<< current->rating;
-    cout << "Comment: " << current->comment << endl;
-    current = current->next;
-}    
-cout << "Average: " << (current->rating / 5) * 100 << endl;
+int idx = 1;
+    while(current) {
+        cout << "    > Review #" << idx << ": " << current->rating << ": " << current->comment << endl;
+        current = current->next;
+        ++idx;
+    }
+    // print average
+    if (count > 0) {
+        cout << "    > Average: " << (sum / count) << endl;
+    } else {
+        cout << "    > Average: 0" << endl;
+    }
 
 // Free allocated memory
 current = head;
