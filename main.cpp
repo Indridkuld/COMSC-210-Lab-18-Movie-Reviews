@@ -87,14 +87,14 @@ head = nullptr;
 return 0;
 }
 // function definitions
-void addFront(reviewNode*& head, const string& comment, int rating) {
+void addFront(reviewNode*& head, const string& comment, float rating) {
     reviewNode *n = new reviewNode;
     n->comment = comment;
     n->rating = rating;
     n->next = head;
     head = n;
 }
-void addTail(reviewNode*& head, const string& comment, int rating) {
+void addTail(reviewNode*& head, const string& comment, float rating) {
     reviewNode *n = new reviewNode;
     n->comment = comment;
     n->rating = rating;
